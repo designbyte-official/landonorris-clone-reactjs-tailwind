@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;600&family=Kalam:wght@700&family=DM+Serif+Display&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --color-ln-yellow: #D2FF00;
+    --color-ln-dark: #101400;
+    --color-ln-olive: #1a1c16;
+    --color-ln-cream: #F4F4ED;
+    --color-ln-gray: #1f1f1f;
+
+    /* LN standardized colors from Figma mapping */
+    --color-ln-onyx: #111112;
+    --color-ln-dark-gray: #535450;
+    --color-ln-slate: #747282;
+    --color-ln-black: #000000;
+    --color-ln-purple: #7367F0;
+    --color-ln-lime: #B2C73A;
+    --color-ln-sage: #B4B8A5;
+    --color-ln-stone: #B9BBAD;
+    --color-ln-yellow: #D2FF00;
+    --color-ln-beige: #DDE1D2;
+    --color-ln-offwhite: #EFEEEC;
+    --color-ln-cream: #F4F4ED;
+    --color-ln-white: #FFFFFF;
+    --color-ln-deep-forest: #1F2323;
+    --color-ln-forest: #282C20;
+    --color-ln-moss: #343A26;
+
+    --font-sans: "Inter", "sans-serif";
+    --font-display: "Oswald", "sans-serif";
+    --font-serif: "DM Serif Display", "serif";
+    --font-script: "Kalam", "cursive";
+
+    --background-image-noise: url('/assets/noise.svg');
+}
+
+@layer base {
+    body {
+        cursor: crosshair;
+        background-color: var(--color-ln-cream);
+    }
+}
+
+@layer utilities {
+    .stroke-text {
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+        color: transparent;
+    }
+
+    .stroke-text-dark {
+        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
+        color: transparent;
+    }
+
+    .clip-diagonal {
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+}
