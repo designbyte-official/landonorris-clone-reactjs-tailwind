@@ -101,6 +101,7 @@ const TrackMode: React.FC = () => {
               <img src="/images/on-off-track/right.webp" loading="lazy" className="w-full h-full object-cover object-top" alt="Lifestyle" />
             </div>
           </div>
+
         </div>
 
       </div>

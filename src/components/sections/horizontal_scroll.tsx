@@ -123,8 +123,8 @@ const HorizontalScroll: React.FC = () => {
           className="flex flex-row h-full items-center"
           style={{ width: 'max-content' }}
         >
-          {/* Single Scene Container - Adjusted to fit one screen */}
-          <div className="relative w-[1800px] h-[100vh] flex-shrink-0" style={{ minWidth: '1800px', position: 'relative' }}>
+          {/* Single Scene Container - Wider for better horizontal scroll */}
+          <div className="relative w-[2400px] h-[100vh] flex-shrink-0" style={{ minWidth: '2400px', position: 'relative' }}>
             {/* Quote Section - Centered Top */}
             <div
               className="absolute z-20 text-center"
