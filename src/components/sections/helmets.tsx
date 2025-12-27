@@ -4,15 +4,15 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const helmets = [
-  { id: 1, name: 'Season', year: '2025', img: '/images/helmets/asset 23.webp' },
-  { id: 2, name: 'Discoball', year: '2025', img: '/images/helmets/asset 27.webp' },
-  { id: 3, name: 'Dark Glitter', year: '2025', img: '/images/helmets/asset 29.webp' },
-  { id: 4, name: 'Porcelain', year: '2024', img: '/images/helmets/asset 31.webp' },
-  { id: 5, name: 'GIF', year: '2024', img: '/images/helmets/asset 33.webp' },
-  { id: 6, name: 'Season', year: '2024', img: '/images/helmets/asset 35.webp' },
-  { id: 7, name: 'Race', year: '2023', img: '/images/helmets/asset 37.webp' },
-  { id: 8, name: 'Chrome', year: '2023', img: '/images/helmets/asset 39.webp' },
-  { id: 9, name: 'Beachball', year: '2023', img: '/images/helmets/asset 41.webp' },
+  { id: 1, name: 'Season', year: '2025', img: '/images/helmets/asset 1.webp' },
+  { id: 2, name: 'Discoball', year: '2025', img: '/images/helmets/asset 2.webp' },
+  { id: 3, name: 'Dark Glitter', year: '2025', img: '/images/helmets/asset 3.webp' },
+  { id: 4, name: 'Porcelain', year: '2024', img: '/images/helmets/asset 4.webp' },
+  { id: 5, name: 'GIF', year: '2024', img: '/images/helmets/asset 5.webp' },
+  { id: 6, name: 'Season', year: '2024', img: '/images/helmets/asset 6.webp' },
+  { id: 7, name: 'Race', year: '2023', img: '/images/helmets/asset 7.webp' },
+  { id: 8, name: 'Chrome', year: '2023', img: '/images/helmets/asset 8.webp' },
+  { id: 9, name: 'Beachball', year: '2023', img: '/images/helmets/asset 9.webp' },
 ];
 
 const Helmets: React.FC = () => {

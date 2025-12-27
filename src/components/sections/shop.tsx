@@ -65,7 +65,7 @@ const Shop: React.FC = () => {
           <div ref={imageRef} className="relative h-[500px] md:h-[600px] w-full">
             {/* Main Image */}
             <div className="absolute top-0 right-0 w-[85%] md:w-[80%] h-[75%] md:h-[80%] bg-gray-200 z-10 rounded-lg overflow-hidden shadow-xl">
-              <img src="/images/horizontal/asset 10.webp" loading="lazy" className="w-full h-full object-cover" alt="Merch Main" />
+              <img src="/images/horizontal/victory-lane.webp" loading="lazy" className="w-full h-full object-cover" alt="Merch Main" />
 
               {/* Script Overlay */}
               <div className="absolute -bottom-6 md:-bottom-10 -left-10 md:-left-20 font-script text-6xl md:text-8xl text-blue-300 drop-shadow-lg z-20 -rotate-12 mix-blend-multiply">
@@ -75,7 +75,7 @@ const Shop: React.FC = () => {
 
             {/* Secondary Image */}
             <div className="absolute bottom-0 left-0 w-[45%] md:w-[40%] h-[35%] md:h-[40%] bg-gray-300 z-20 border-4 border-white rounded-lg overflow-hidden shadow-xl">
-              <img src="/images/helmets/asset 23.webp" loading="lazy" className="w-full h-full object-cover" alt="Merch Detail" />
+              <img src="/images/helmets/asset 1.webp" loading="lazy" className="w-full h-full object-cover" alt="Merch Detail" />
             </div>
 
             {/* Sticker Graphic */}

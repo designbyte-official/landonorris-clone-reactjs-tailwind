@@ -40,7 +40,7 @@ const CTA: React.FC = () => {
                                 transform: `rotate(${(i - 3) * 8}deg) translateY(${Math.abs(i - 3) * 8}px)`,
                                 zIndex: i === 3 ? 10 : 5
                             }}>
-                            <img src="/images/horizontal/asset 8.webp" loading="lazy" className="w-full h-full object-cover opacity-80" alt={`Social ${i}`} />
+                            <img src="/images/horizontal/on-track.webp" loading="lazy" className="w-full h-full object-cover opacity-80" alt={`Social ${i}`} />
                         </div>
                     ))}
                 </div>
@@ -77,7 +77,7 @@ const CTA: React.FC = () => {
 
                     {/* Helmet Image Centered */}
                     <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 mb-8 md:mb-12 mx-auto">
-                        <img src="/images/helmets/asset 23.webp" loading="lazy" className="w-full h-full object-contain drop-shadow-2xl" alt="Helmet" />
+                        <img src="/images/helmets/asset 1.webp" loading="lazy" className="w-full h-full object-contain drop-shadow-2xl" alt="Helmet" />
                     </div>
 
                     <div className="flex items-center gap-4">

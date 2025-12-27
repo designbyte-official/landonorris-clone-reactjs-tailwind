@@ -50,7 +50,7 @@
     --font-brier: "Brier Bold", "serif";
     --font-wght: "wght", "sans-serif";
 
-    --background-image-noise: url('/assets/noise.svg');
+    --background-image-noise: url('/images/noise.svg');
 }
 
 @layer base {
