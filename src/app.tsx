@@ -6,6 +6,7 @@ import Header from './components/layout/header';
 import Hero from './components/sections/hero/index';
 import BackgroundLines from './components/ui/background_lines';
 import Introduction from './components/sections/introduction';
+import HorizontalScroll from './components/sections/horizontal_scroll';
 import TrackMode from './components/sections/track_mode';
 import Helmets from './components/sections/helmets';
 import Shop from './components/sections/shop';
@@ -75,6 +76,7 @@ const App: React.FC = () => {
       <main className="relative z-10 w-full flex flex-col items-center">
         <Hero />
         <Introduction />
+        <HorizontalScroll />
         <TrackMode />
         <Helmets />
         <Shop />
