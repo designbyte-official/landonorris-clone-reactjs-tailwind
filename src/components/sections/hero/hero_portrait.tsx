@@ -9,17 +9,24 @@ interface HeroPortraitProps {
 
 const HeroPortrait: React.FC<HeroPortraitProps> = ({ containerRef }) => {
   const canvasRef = useRef<HTMLDivElement>(null);
+  const appRef = useRef<PIXI.Application | null>(null);
+  const initializedRef = useRef<boolean>(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
 
   useEffect(() => {
+    if (!containerRef.current || !canvasRef.current || initializedRef.current) return;
+    if (appRef.current) return; // Already initialized
+
+    initializedRef.current = true;
+
     // PixiJS 3D Depth Map Effect
     let app: PIXI.Application | null = null;
     let cleanupFn: (() => void) | null = null;
 
     const initPixi = async () => {
-      if (!containerRef.current || !canvasRef.current) return;
 
       app = new PIXI.Application();
+      appRef.current = app;
       await app.init({
         antialias: true,
         backgroundAlpha: 0,
@@ -28,7 +35,7 @@ const HeroPortrait: React.FC<HeroPortraitProps> = ({ containerRef }) => {
         height: 1200,
       });
 
-      if (canvasRef.current && app.canvas) {
+      if (canvasRef.current && app.canvas && !canvasRef.current.contains(app.canvas)) {
         canvasRef.current.appendChild(app.canvas);
       }
 
@@ -139,7 +146,11 @@ const HeroPortrait: React.FC<HeroPortraitProps> = ({ containerRef }) => {
           containerRef.current.removeEventListener('mousemove', handleMouseMove);
           containerRef.current.removeEventListener('click', handleMouseClick);
         }
-        if (app) app.destroy(true, { children: true, texture: true });
+        if (app) {
+          app.destroy(true, { children: true, texture: true });
+          appRef.current = null;
+          initializedRef.current = false;
+        }
       };
     };
 
@@ -148,7 +159,7 @@ const HeroPortrait: React.FC<HeroPortraitProps> = ({ containerRef }) => {
     return () => {
       if (cleanupFn) cleanupFn();
     };
-  });
+  }, []);
 
   return (
     <div className="relative z-20 h-full flex items-end w-full max-w-[100rem]">

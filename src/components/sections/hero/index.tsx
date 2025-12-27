@@ -6,6 +6,7 @@ import HeroLogo from './hero_logo';
 import HeroFloatingElements from './hero_floating_elements';
 import HeroMessage from './hero_message';
 import HeroPortrait from './hero_portrait';
+import HeroCustomCursor from './hero_custom_cursor';
 import { useHeroScrollAnimations } from './hero_scroll_animations';
 
 const Hero: React.FC = () => {
@@ -18,7 +19,7 @@ const Hero: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen min-h-[50rem] flex items-end justify-center overflow-hidden bg-ln-cream"
+      className="relative w-full h-screen min-h-[50rem] flex items-end justify-center overflow-hidden bg-ln-cream cursor-none"
     >
       {/* Animated Background Green Curve */}
       <BackgroundCurve />
@@ -28,6 +29,9 @@ const Hero: React.FC = () => {
 
       {/* Top Center Logo */}
       <HeroLogo />
+
+      {/* Custom Cursor for Hero */}
+      <HeroCustomCursor containerRef={containerRef} />
 
       {/* Floating Playful Elements */}
       <HeroFloatingElements />
