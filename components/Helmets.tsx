@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const helmets = [
   { id: 1, name: 'Season', year: '2025', img: '/assets/In-helm-2025-Season-base.webp' },
@@ -14,8 +16,29 @@ const helmets = [
 ];
 
 const Helmets: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(gridRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: 'back.out(1.2)',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 60%',
+        }
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="w-full bg-[#111] text-white py-32 px-6">
+    <section ref={sectionRef} className="w-full bg-[#111] text-white py-32 px-6">
       <div className="max-w-[1400px] mx-auto">
 
         {/* Header */}
@@ -34,13 +57,17 @@ const Helmets: React.FC = () => {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-gray-800">
           {helmets.map((helmet, idx) => (
-            <div key={idx} className="relative aspect-square border-r border-b border-gray-800 group overflow-hidden cursor-pointer bg-ln-dark">
+            <div 
+              key={idx} 
+              ref={el => { gridRef.current[idx] = el }}
+              className="relative aspect-square border-r border-b border-gray-800 group overflow-hidden cursor-pointer bg-ln-dark hover:bg-gradient-to-br hover:from-ln-dark hover:to-gray-900 transition-all duration-500">
 
               {/* Image */}
               <div className="w-full h-full p-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
                 <img
                   src={helmet.img}
                   alt={helmet.name}
+                  loading="lazy"
                   className="w-full h-full object-contain drop-shadow-2xl"
                 />
               </div>
@@ -71,8 +98,8 @@ const Helmets: React.FC = () => {
             See more helmets and highlights<br />from Lando on the track
           </h3>
 
-          <button className="bg-ln-yellow text-black px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest hover:bg-white transition-colors flex items-center gap-2">
-            View On Track <ArrowUpRight size={14} />
+          <button className="group bg-ln-yellow text-black px-8 py-3 rounded-sm font-bold uppercase text-xs tracking-widest hover:bg-white transition-all duration-300 flex items-center gap-2 hover:scale-105 hover:shadow-2xl">
+            View On Track <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </button>
         </div>
       </div>

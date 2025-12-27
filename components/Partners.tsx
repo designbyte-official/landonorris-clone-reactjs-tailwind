@@ -1,8 +1,41 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const Partners: React.FC = () => {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const logosRef = useRef<(HTMLDivElement | null)[]>([]);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            // Animate logos on scroll
+            gsap.from(logosRef.current, {
+                y: 50,
+                opacity: 0,
+                stagger: 0.1,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 70%',
+                }
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
+    const partners = [
+        { name: 'Ralph Lauren', logo: '/assets/ln4-ln4-collab-logo-ralph.svg' },
+        { name: 'Playstation', logo: '/assets/ln4-ln4-collab-logo-ps4.svg' },
+        { name: 'Quadrant', logo: '/assets/ln4-ln4-collab-logo-quadrant.svg' },
+        { name: 'Tumi', logo: '/assets/ln4-ln4-collab-logo-tumi.svg' },
+        { name: 'Hilton', logo: '/assets/ln4-ln4-collab-logo-hilton.svg' },
+        { name: 'Uber', logo: '/assets/ln4-ln4-collab-logo-uber.svg' },
+    ];
+
     return (
-        <section className="w-full py-32 bg-ln-cream border-t border-gray-200 relative overflow-hidden">
+        <section ref={sectionRef} className="w-full py-32 bg-ln-cream border-t border-gray-200 relative overflow-hidden">
 
             {/* Background Large Script */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-0 pointer-events-none select-none">
@@ -23,26 +56,21 @@ const Partners: React.FC = () => {
                 </div>
 
                 {/* Logos Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 items-center grayscale opacity-80 hover:opacity-100 transition-opacity duration-300">
-                    {/* Using extracted SVG URLs */}
-                    <div className="flex justify-center items-center h-16">
-                        <img src="/assets/ln4-ln4-collab-logo-ralph.svg" alt="Ralph Lauren" className="max-h-full max-w-full" />
-                    </div>
-                    <div className="flex justify-center items-center h-16">
-                        <img src="/assets/ln4-ln4-collab-logo-ps4.svg" alt="Playstation" className="max-h-full max-w-full" />
-                    </div>
-                    <div className="flex justify-center items-center h-16">
-                        <img src="/assets/ln4-ln4-collab-logo-quadrant.svg" alt="Quadrant" className="max-h-full max-w-full" />
-                    </div>
-                    <div className="flex justify-center items-center h-16">
-                        <img src="/assets/ln4-ln4-collab-logo-tumi.svg" alt="Tumi" className="max-h-full max-w-full" />
-                    </div>
-                    <div className="flex justify-center items-center h-16">
-                        <img src="/assets/ln4-ln4-collab-logo-hilton.svg" alt="Hilton" className="max-h-full max-w-full" />
-                    </div>
-                    <div className="flex justify-center items-center h-16">
-                        <img src="/assets/ln4-ln4-collab-logo-uber.svg" alt="Uber" className="max-h-full max-w-full" />
-                    </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 items-center">
+                    {partners.map((partner, idx) => (
+                        <div 
+                            key={idx}
+                            ref={el => { logosRef.current[idx] = el }}
+                            className="flex justify-center items-center h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
+                        >
+                            <img 
+                                src={partner.logo} 
+                                alt={partner.name}
+                                loading="lazy" 
+                                className="max-h-full max-w-full" 
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

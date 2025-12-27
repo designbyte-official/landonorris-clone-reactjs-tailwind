@@ -62,11 +62,11 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-ln-cream text-ln-dark overflow-x-hidden selection:bg-ln-yellow selection:text-black">
+    <div className="relative w-full min-h-screen bg-ln-cream text-ln-dark overflow-x-hidden selection:bg-ln-yellow selection:text-black scroll-smooth">
       
       {/* Intro Loader Overlay */}
       <div className="loader-overlay fixed inset-0 bg-ln-yellow z-[100] flex items-center justify-center overflow-hidden">
-        <h1 className="font-display font-bold text-6xl md:text-9xl tracking-tighter text-black uppercase">
+        <h1 className="font-display font-bold text-6xl md:text-9xl tracking-tighter text-black uppercase animate-pulse">
           LN4
         </h1>
       </div>

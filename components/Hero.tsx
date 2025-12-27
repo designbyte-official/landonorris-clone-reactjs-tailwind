@@ -1,11 +1,63 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const portraitRef = useRef<HTMLImageElement>(null);
   const helmetRef = useRef<HTMLImageElement>(null);
   const bgLinesRef = useRef<HTMLDivElement>(null);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  
+  useEffect(() => {
+    // Initial animation on load
+    if (imagesLoaded) {
+      gsap.from(portraitRef.current, {
+        y: 100,
+        opacity: 0,
+        duration: 1.5,
+        ease: 'power3.out',
+        delay: 0.5
+      });
+      
+      gsap.from(helmetRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 1.8,
+        ease: 'elastic.out(1, 0.6)',
+        delay: 0.8
+      });
+    }
+  }, [imagesLoaded]);
+
+  useEffect(() => {
+    // Scroll-triggered animation
+    const ctx = gsap.context(() => {
+      gsap.to(portraitRef.current, {
+        y: 200,
+        scale: 0.95,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1,
+        }
+      });
+
+      gsap.to(helmetRef.current, {
+        y: -150,
+        rotate: 15,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1,
+        }
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
   
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,8 +79,7 @@ const Hero: React.FC = () => {
         });
       }
 
-      // Helmet Layer (Wireframe/Tech): Moves WITH mouse, creating a parallax separation from head
-      // This matches the "looking around" or 3D effect shown in the original site
+      // Helmet Layer: Moves WITH mouse, creating parallax effect
       if (helmetRef.current) {
         gsap.to(helmetRef.current, {
           x: x * 40,
@@ -58,7 +109,7 @@ const Hero: React.FC = () => {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full h-[110vh] flex items-end justify-center overflow-hidden pt-20"
+      className="relative w-full h-[100vh] md:h-[110vh] flex items-end justify-center overflow-hidden pt-20"
     >
       {/* Background Contour Lines */}
       <div ref={bgLinesRef} className="absolute inset-0 z-0 opacity-40 scale-110">
@@ -83,13 +134,13 @@ const Hero: React.FC = () => {
       <div className="relative z-10 w-full max-w-[1400px] h-[90%] flex items-end justify-center">
         
         {/* Wireframe Helmet Graphic - Placed behind/around head for effect */}
-        {/* Using the helmet asset from CDN */}
-        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] z-20 pointer-events-none mix-blend-multiply opacity-60">
+        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] z-20 pointer-events-none mix-blend-multiply opacity-40 md:opacity-60 transition-opacity duration-700">
              <img 
                ref={helmetRef}
                src="/assets/ln4-hp-lando-helmet.webp" 
                alt="Helmet Wireframe" 
                className="w-full h-full object-contain"
+               onLoad={() => setImagesLoaded(true)}
              />
         </div>
 
@@ -99,7 +150,7 @@ const Hero: React.FC = () => {
             ref={portraitRef}
             src="/assets/ln4-hp-lando-head.webp" 
             alt="Lando Norris" 
-            className="h-[85vh] w-auto object-contain object-bottom drop-shadow-2xl"
+            className="h-[70vh] md:h-[85vh] w-auto object-contain object-bottom drop-shadow-2xl transition-all duration-700"
           />
         </div>
 

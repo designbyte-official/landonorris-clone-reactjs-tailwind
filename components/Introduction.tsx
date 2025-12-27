@@ -68,44 +68,60 @@ const Introduction: React.FC = () => {
           </h2>
         </div>
 
-        {/* Scattered Grid - Updated Images */}
+        {/* Mobile Image Gallery */}
+        <div className="lg:hidden grid grid-cols-2 gap-4 px-4">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-xl">
+            <img src="/assets/ln-home-horiz-1.webp" loading="lazy" className="w-full h-full object-cover" alt="Qatar" />
+            <span className="absolute bottom-2 left-2 text-[8px] uppercase font-bold tracking-widest text-white drop-shadow-md">Qatar, 2024</span>
+          </div>
+          <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-xl">
+            <img src="/assets/ln-home-horiz-2.webp" loading="lazy" className="w-full h-full object-cover" alt="FIA" />
+            <span className="absolute bottom-2 left-2 text-[8px] uppercase font-bold tracking-widest text-white drop-shadow-md">FIA Prize, 2024</span>
+          </div>
+          <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-xl col-span-2">
+            <img src="/assets/ln-home-horiz-3.webp" loading="lazy" className="w-full h-full object-cover" alt="Miami" />
+            <span className="absolute bottom-2 left-2 text-[8px] uppercase font-bold tracking-widest text-white drop-shadow-md">Miami GP, 2024</span>
+          </div>
+        </div>
+
+        {/* Scattered Grid - Updated Images (Desktop) */}
         <div className="relative h-[800px] w-full max-w-7xl mx-auto hidden lg:block">
 
           {/* 1. Qatar 2024 - Top Left */}
-          <div ref={el => { imagesRef.current[0] = el }} className="absolute top-0 left-[10%] w-[280px] h-[350px] rotate-[-3deg] z-10">
+          <div ref={el => { imagesRef.current[0] = el }} className="absolute top-0 left-[10%] w-[280px] h-[350px] rotate-[-3deg] z-10 hover:rotate-0 hover:scale-105 transition-all duration-500 cursor-pointer">
             <span className="absolute -top-6 left-0 text-[10px] uppercase font-bold tracking-widest text-gray-400">Qatar, 2024</span>
             <div className="w-full h-full bg-gray-800 overflow-hidden shadow-2xl border border-white/10">
-              <img src="/assets/ln-home-horiz-1.webp" className="w-full h-full object-cover" alt="Qatar" />
+              <img src="/assets/ln-home-horiz-1.webp" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" alt="Qatar" />
             </div>
           </div>
 
           {/* 2. Quote + Signature - Right Side */}
           <div ref={el => { imagesRef.current[1] = el }} className="absolute top-[10%] right-[15%] w-[350px] text-left z-20">
             <p className="font-serif text-3xl leading-tight text-ln-cream mb-4">
-              It doesn’t matter <span className="italic font-bold">where</span> you start, it’s <span className="italic font-bold">how</span> you progress from there.
+              It doesn't matter <span className="italic font-bold">where</span> you start, it's <span className="italic font-bold">how</span> you progress from there.
             </p>
-            <img src="/assets/ln4-hw-signature2.svg" className="w-32 invert opacity-80" alt="Signature" />
+            <img src="/assets/ln4-hw-signature2.svg" loading="lazy" className="w-32 invert opacity-80" alt="Signature" />
           </div>
 
           {/* 3. FIA Prize Giving - Center Bottom */}
-          <div ref={el => { imagesRef.current[2] = el }} className="absolute bottom-[20%] left-[30%] w-[250px] h-[250px] rotate-[2deg] z-10 hover:z-50 transition-all duration-500 hover:scale-105">
+          <div ref={el => { imagesRef.current[2] = el }} className="absolute bottom-[20%] left-[30%] w-[250px] h-[250px] rotate-[2deg] z-10 hover:z-50 transition-all duration-500 hover:scale-105 hover:rotate-0 cursor-pointer">
             <span className="absolute -top-6 left-0 text-[10px] uppercase font-bold tracking-widest text-gray-400">FIA Prize Giving, 2024</span>
             <div className="w-full h-full bg-gray-800 overflow-hidden shadow-2xl">
-              <img src="/assets/ln-home-horiz-2.webp" className="w-full h-full object-cover" alt="FIA" />
+              <img src="/assets/ln-home-horiz-2.webp" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" alt="FIA" />
             </div>
           </div>
 
           {/* 4. Miami GP - Right Large */}
-          <div ref={el => { imagesRef.current[3] = el }} className="absolute top-[40%] right-0 w-[400px] h-[500px] rotate-[-2deg] z-30 border-4 border-ln-yellow/10">
+          <div ref={el => { imagesRef.current[3] = el }} className="absolute top-[40%] right-0 w-[400px] h-[500px] rotate-[-2deg] z-30 border-4 border-ln-yellow/10 hover:rotate-0 hover:scale-105 transition-all duration-500">
             <span className="absolute -top-6 left-0 text-[10px] uppercase font-bold tracking-widest text-gray-400">Miami GP, 2024</span>
             <div className="w-full h-full bg-gray-800 overflow-hidden shadow-2xl">
-              <img src="/assets/ln-home-horiz-3.webp" className="w-full h-full object-cover" alt="Miami" />
+              <img src="/assets/ln-home-horiz-3.webp" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" alt="Miami" />
             </div>
           </div>
 
           {/* 5. Podium - Bottom Left Crop */}
           <div ref={el => { imagesRef.current[4] = el }} className="absolute bottom-[-50px] left-0 w-[400px] h-[300px] rotate-2 z-0 opacity-80">
-            <img src="/assets/ln-home-horiz-6.webp" className="w-full h-full object-cover" alt="Battersea" />
+            <img src="/assets/ln-home-horiz-6.webp" loading="lazy" className="w-full h-full object-cover" alt="Battersea" />
             <span className="absolute bottom-12 right-4 text-[10px] uppercase font-bold tracking-widest text-white drop-shadow-md">Battersea, 2024</span>
           </div>
 

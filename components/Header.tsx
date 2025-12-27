@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Menu, ShoppingBag } from 'lucide-react';
+import gsap from 'gsap';
 
 const Header: React.FC = () => {
+  const headerRef = useRef<HTMLElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 md:py-8 flex justify-between items-start pointer-events-none mix-blend-difference text-white">
+    <header 
+      ref={headerRef}
+      className={`fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 md:py-8 flex justify-between items-start pointer-events-none mix-blend-difference text-white transition-all duration-300 ${isScrolled ? 'scale-95' : 'scale-100'}`}
+    >
       {/* Left Logo */}
       <div className="pointer-events-auto hero-element">
         <svg width="138" height="63" viewBox="0 0 138 63" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-24 md:w-32 h-auto text-current">
