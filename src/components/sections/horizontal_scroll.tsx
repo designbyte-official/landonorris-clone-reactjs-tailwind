@@ -18,7 +18,11 @@ const HorizontalScroll: React.FC = () => {
       const track = trackRef.current;
       if (!track) return;
 
-      const getScrollDistance = () => Math.max(track.scrollWidth - window.innerWidth, 0);
+      const getScrollDistance = () => {
+        const baseDistance = Math.max(track.scrollWidth - window.innerWidth, 0);
+        // Add extra scroll distance to ensure full scroll through
+        return baseDistance + window.innerWidth * 0.5;
+      };
 
       // Horizontal scroll
       gsap.to(track, {
@@ -119,8 +123,8 @@ const HorizontalScroll: React.FC = () => {
           className="flex flex-row h-full items-center"
           style={{ width: 'max-content' }}
         >
-          {/* Single Scene Container */}
-          <div className="relative w-[2000px] h-[1200px] flex-shrink-0" style={{ minWidth: '2000px', position: 'relative' }}>
+          {/* Single Scene Container - Adjusted to fit one screen */}
+          <div className="relative w-[1800px] h-[100vh] flex-shrink-0" style={{ minWidth: '1800px', position: 'relative' }}>
             {/* Quote Section - Centered Top */}
             <div
               className="absolute z-20 text-center"

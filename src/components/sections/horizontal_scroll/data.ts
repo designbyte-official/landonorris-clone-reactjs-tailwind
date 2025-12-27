@@ -88,6 +88,6 @@ export const horizontalItems: HorizontalItem[] = [
 
 export const quoteItem = {
   text: "It doesn't matter where you start, it's how you progress from there.",
-  position: { top: '5%', left: '50%', transform: 'translateX(-50%)', width: '500px' }
+  position: { top: '8%', left: '50%', transform: 'translateX(-50%)', width: '600px' }
 };
 
