@@ -78,10 +78,6 @@ const App: React.FC = () => {
         <Introduction />
         <HorizontalScroll />
         <TrackMode />
-        <Helmets />
-        <Shop />
-        <Partners />
-        <CTA />
       </main>
 
       <Footer />
