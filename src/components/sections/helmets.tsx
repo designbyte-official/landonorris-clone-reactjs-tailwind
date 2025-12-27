@@ -4,15 +4,15 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const helmets = [
-  { id: 1, name: 'Season', year: '2025', img: '/assets/In-helm-2025-Season-base.webp' },
-  { id: 2, name: 'Discoball', year: '2025', img: '/assets/In-helm-2025-Discoball-base.webp' },
-  { id: 3, name: 'Dark Glitter', year: '2025', img: '/assets/In-helm-2025-DarkGlitter-base.webp' },
-  { id: 4, name: 'Porcelain', year: '2024', img: '/assets/In-helm-2024-Porcelain-base.webp' },
-  { id: 5, name: 'GIF', year: '2024', img: '/assets/In-helm-2024-GIF-Helmet-base.webp' },
-  { id: 6, name: 'Season', year: '2024', img: '/assets/In-helm-2024-Season-base.webp' },
-  { id: 7, name: 'Race', year: '2023', img: '/assets/In-helm-2023-Race-100-base.webp' },
-  { id: 8, name: 'Chrome', year: '2023', img: '/assets/In-helm-2023-Chrome-base.webp' },
-  { id: 9, name: 'Beachball', year: '2023', img: '/assets/In-helm-2023-Beach-Ball-base.webp' },
+  { id: 1, name: 'Season', year: '2025', img: '/images/helmets/asset 23.webp' },
+  { id: 2, name: 'Discoball', year: '2025', img: '/images/helmets/asset 27.webp' },
+  { id: 3, name: 'Dark Glitter', year: '2025', img: '/images/helmets/asset 29.webp' },
+  { id: 4, name: 'Porcelain', year: '2024', img: '/images/helmets/asset 31.webp' },
+  { id: 5, name: 'GIF', year: '2024', img: '/images/helmets/asset 33.webp' },
+  { id: 6, name: 'Season', year: '2024', img: '/images/helmets/asset 35.webp' },
+  { id: 7, name: 'Race', year: '2023', img: '/images/helmets/asset 37.webp' },
+  { id: 8, name: 'Chrome', year: '2023', img: '/images/helmets/asset 39.webp' },
+  { id: 9, name: 'Beachball', year: '2023', img: '/images/helmets/asset 41.webp' },
 ];
 
 const Helmets: React.FC = () => {
@@ -57,8 +57,8 @@ const Helmets: React.FC = () => {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-gray-800">
           {helmets.map((helmet, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               ref={el => { gridRef.current[idx] = el }}
               className="relative aspect-square border-r border-b border-gray-800 group overflow-hidden cursor-pointer bg-ln-dark hover:bg-gradient-to-br hover:from-ln-dark hover:to-gray-900 transition-all duration-500">
 

@@ -26,12 +26,12 @@ const Partners: React.FC = () => {
     }, []);
 
     const partners = [
-        { name: 'Ralph Lauren', logo: '/assets/ln4-ln4-collab-logo-ralph.svg' },
-        { name: 'Playstation', logo: '/assets/ln4-ln4-collab-logo-ps4.svg' },
-        { name: 'Quadrant', logo: '/assets/ln4-ln4-collab-logo-quadrant.svg' },
-        { name: 'Tumi', logo: '/assets/ln4-ln4-collab-logo-tumi.svg' },
-        { name: 'Hilton', logo: '/assets/ln4-ln4-collab-logo-hilton.svg' },
-        { name: 'Uber', logo: '/assets/ln4-ln4-collab-logo-uber.svg' },
+        { name: 'Ralph Lauren', logo: '/images/logos-icons/ralph-lauren.svg' },
+        { name: 'Playstation', logo: '/images/logos-icons/ps5.svg' },
+        { name: 'Quadrant', logo: '/images/logos-icons/quadrant.svg' },
+        { name: 'Tumi', logo: '/images/logos-icons/tum.svg' },
+        { name: 'Hilton', logo: '/images/logos-icons/hitton.svg' },
+        { name: 'Uber', logo: '/images/logos-icons/uber.svg' },
     ];
 
     return (
@@ -58,16 +58,16 @@ const Partners: React.FC = () => {
                 {/* Logos Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 items-center">
                     {partners.map((partner, idx) => (
-                        <div 
+                        <div
                             key={idx}
                             ref={el => { logosRef.current[idx] = el }}
                             className="flex justify-center items-center h-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
                         >
-                            <img 
-                                src={partner.logo} 
+                            <img
+                                src={partner.logo}
                                 alt={partner.name}
-                                loading="lazy" 
-                                className="max-h-full max-w-full" 
+                                loading="lazy"
+                                className="max-h-full max-w-full"
                             />
                         </div>
                     ))}

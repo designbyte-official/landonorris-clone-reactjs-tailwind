@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;600&family=Kalam:wght@700&family=DM+Serif+Display&display=swap');
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'Brier Bold';
+    src: url('/fonts/Brier-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'wght';
+    src: url('/fonts/wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
 @theme {
     --color-ln-yellow: #D2FF00;
+    /* ... (rest of the colors) ... */
     --color-ln-dark: #101400;
     --color-ln-olive: #1a1c16;
     --color-ln-cream: #F4F4ED;
@@ -26,10 +41,14 @@
     --color-ln-forest: #282C20;
     --color-ln-moss: #343A26;
 
-    --font-sans: "Inter", "sans-serif";
+    --font-sans: "wght", "Inter", "sans-serif";
     --font-display: "Oswald", "sans-serif";
-    --font-serif: "DM Serif Display", "serif";
+    --font-serif: "Brier Bold", "DM Serif Display", "serif";
     --font-script: "Kalam", "cursive";
+
+    /* Dedicated aliases */
+    --font-brier: "Brier Bold", "serif";
+    --font-wght: "wght", "sans-serif";
 
     --background-image-noise: url('/assets/noise.svg');
 }
@@ -59,5 +78,29 @@
     ::-webkit-scrollbar {
         width: 0px;
         background: transparent;
+    }
+
+    @keyframes background-float {
+
+        0%,
+        100% {
+            transform: translate(0, 0) rotate(0deg) scale(1.1);
+        }
+
+        33% {
+            transform: translate(-2%, 2%) rotate(2deg) scale(1.15);
+        }
+
+        66% {
+            transform: translate(2%, -1%) rotate(-1deg) scale(1.1);
+        }
+    }
+
+    .animate-background-float {
+        animation: background-float 30s ease-in-out infinite;
+    }
+
+    .animate-background-float-delayed {
+        animation: background-float 35s ease-in-out infinite reverse;
     }
 }

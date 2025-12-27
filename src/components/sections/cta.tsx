@@ -32,7 +32,7 @@ const CTA: React.FC = () => {
             <div className="relative w-full h-[200px] md:h-[300px] mb-[-80px] md:mb-[-100px] z-0 overflow-hidden">
                 <div className="absolute left-1/2 -translate-x-1/2 w-full md:w-[800px] h-full flex justify-center items-end gap-2 md:gap-4 perspective-[1000px] px-4">
                     {[1, 2, 3, 4, 5].map((i) => (
-                        <div 
+                        <div
                             key={i}
                             ref={el => { cardsRef.current[i - 1] = el }}
                             className="w-20 h-32 md:w-32 md:h-48 bg-gray-800 rounded-lg md:rounded-xl overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-10 hover:scale-110 border border-white/20"
@@ -40,7 +40,7 @@ const CTA: React.FC = () => {
                                 transform: `rotate(${(i - 3) * 8}deg) translateY(${Math.abs(i - 3) * 8}px)`,
                                 zIndex: i === 3 ? 10 : 5
                             }}>
-                            <img src="/assets/ln-social-img-5.webp" loading="lazy" className="w-full h-full object-cover opacity-80" alt={`Social ${i}`} />
+                            <img src="/images/horizontal/asset 8.webp" loading="lazy" className="w-full h-full object-cover opacity-80" alt={`Social ${i}`} />
                         </div>
                     ))}
                 </div>
@@ -67,7 +67,7 @@ const CTA: React.FC = () => {
                 <div className="relative z-10 flex flex-col items-center">
                     {/* Signature/Script */}
                     <div className="text-ln-yellow mb-4 -rotate-6">
-                        <img src="/assets/ln4-hw-signature2.svg" loading="lazy" alt="L4 Signature" className="h-16 w-auto opacity-80" />
+                        <img src="/images/logos-and-signatures/signature.svg" loading="lazy" alt="L4 Signature" className="h-16 w-auto opacity-80 invert" />
                     </div>
 
                     <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-8xl uppercase leading-[0.9] tracking-tighter mb-8 md:mb-12">
@@ -77,7 +77,7 @@ const CTA: React.FC = () => {
 
                     {/* Helmet Image Centered */}
                     <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 mb-8 md:mb-12 mx-auto">
-                        <img src="/assets/ln-360-helm-1.webp" loading="lazy" className="w-full h-full object-contain drop-shadow-2xl" alt="Helmet" />
+                        <img src="/images/helmets/asset 23.webp" loading="lazy" className="w-full h-full object-contain drop-shadow-2xl" alt="Helmet" />
                     </div>
 
                     <div className="flex items-center gap-4">

@@ -4,7 +4,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from './components/layout/header';
 import Hero from './components/sections/hero';
-import RaceCard from './components/cards/race_card';
 import BackgroundLines from './components/ui/background_lines';
 import Introduction from './components/sections/introduction';
 import TrackMode from './components/sections/track_mode';
@@ -71,13 +70,7 @@ const App: React.FC = () => {
         </h1>
       </div>
 
-      {/* Global Background Graphics */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-30 mix-blend-multiply">
-        <BackgroundLines />
-      </div>
-
       <Header />
-      <RaceCard />
 
       <main className="relative z-10 w-full flex flex-col items-center">
         <Hero />
@@ -90,7 +83,7 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
-    </div>
+    </div >
   );
 };
 
