@@ -3,7 +3,7 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from './components/layout/header';
-import Hero from './components/sections/hero';
+import Hero from './components/sections/hero/index';
 import BackgroundLines from './components/ui/background_lines';
 import Introduction from './components/sections/introduction';
 import TrackMode from './components/sections/track_mode';
