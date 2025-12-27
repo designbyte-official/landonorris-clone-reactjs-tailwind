@@ -2,17 +2,17 @@ import React, { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import RaceCard from './components/RaceCard';
-import BackgroundLines from './components/BackgroundLines';
-import Introduction from './components/Introduction';
-import TrackMode from './components/TrackMode';
-import Helmets from './components/Helmets';
-import Shop from './components/Shop';
-import Partners from './components/Partners';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
+import Header from './components/header';
+import Hero from './components/hero';
+import RaceCard from './components/race_card';
+import BackgroundLines from './components/background_lines';
+import Introduction from './components/introduction';
+import TrackMode from './components/track_mode';
+import Helmets from './components/helmets';
+import Shop from './components/shop';
+import Partners from './components/partners';
+import CTA from './components/cta';
+import Footer from './components/footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,7 +63,7 @@ const App: React.FC = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-ln-cream text-ln-dark overflow-x-hidden selection:bg-ln-yellow selection:text-black scroll-smooth">
-      
+
       {/* Intro Loader Overlay */}
       <div className="loader-overlay fixed inset-0 bg-ln-yellow z-[100] flex items-center justify-center overflow-hidden">
         <h1 className="font-display font-bold text-6xl md:text-9xl tracking-tighter text-black uppercase animate-pulse">
