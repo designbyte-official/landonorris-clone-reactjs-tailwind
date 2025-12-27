@@ -2,17 +2,17 @@ import React, { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Header from './components/header';
-import Hero from './components/hero';
-import RaceCard from './components/race_card';
-import BackgroundLines from './components/background_lines';
-import Introduction from './components/introduction';
-import TrackMode from './components/track_mode';
-import Helmets from './components/helmets';
-import Shop from './components/shop';
-import Partners from './components/partners';
-import CTA from './components/cta';
-import Footer from './components/footer';
+import Header from './components/layout/header';
+import Hero from './components/sections/hero';
+import RaceCard from './components/cards/race_card';
+import BackgroundLines from './components/ui/background_lines';
+import Introduction from './components/sections/introduction';
+import TrackMode from './components/sections/track_mode';
+import Helmets from './components/sections/helmets';
+import Shop from './components/sections/shop';
+import Partners from './components/sections/partners';
+import CTA from './components/sections/cta';
+import Footer from './components/layout/footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
