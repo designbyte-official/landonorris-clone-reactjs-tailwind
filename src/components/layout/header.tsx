@@ -45,7 +45,7 @@ const Header: React.FC = () => {
         {/* Left Logo - Vertically Stacked */}
         <div ref={logoRef} className="flex-shrink-0 pointer-events-auto leading-[0.85]">
           <a href="/" className="flex flex-col items-start group">
-            <span className="font-serif text-[1.8rem] md:text-[2.2rem] text-ln-deep-forest group-hover:text-ln-black transition-colors uppercase tracking-tight">
+            <span className="font-serif text-[1.8rem] md:text-[2.2rem] mix-blend-difference text-ln-deep-forest group-hover:text-ln-black transition-colors uppercase tracking-tight">
               LANDO
             </span>
             <span className="font-sans font-black text-[1.8rem] md:text-[2.2rem] text-ln-deep-forest group-hover:text-ln-black transition-colors uppercase tracking-tight">

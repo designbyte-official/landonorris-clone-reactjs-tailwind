@@ -13,12 +13,15 @@ const HeroCustomCursor: React.FC<HeroCustomCursorProps> = ({ containerRef }) => 
     const cursor = cursorRef.current;
     if (!container || !cursor) return;
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+    let isHovering = false;
+    let animationId: number;
 
     const handleMouseEnter = () => {
+      isHovering = true;
       gsap.to(cursor, {
         opacity: 1,
         scale: 1,
@@ -28,6 +31,7 @@ const HeroCustomCursor: React.FC<HeroCustomCursorProps> = ({ containerRef }) => 
     };
 
     const handleMouseLeave = () => {
+      isHovering = false;
       gsap.to(cursor, {
         opacity: 0,
         scale: 0,
@@ -37,17 +41,15 @@ const HeroCustomCursor: React.FC<HeroCustomCursorProps> = ({ containerRef }) => 
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!container) return;
-      const rect = container.getBoundingClientRect();
       mouseX = e.clientX;
       mouseY = e.clientY;
     };
 
     const animateCursor = () => {
-      cursorX += (mouseX - cursorX) * 0.15;
-      cursorY += (mouseY - cursorY) * 0.15;
+      if (isHovering) {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
 
-      if (cursor) {
         gsap.set(cursor, {
           x: cursorX,
           y: cursorY,
@@ -56,18 +58,19 @@ const HeroCustomCursor: React.FC<HeroCustomCursorProps> = ({ containerRef }) => 
         });
       }
 
-      requestAnimationFrame(animateCursor);
+      animationId = requestAnimationFrame(animateCursor);
     };
 
     container.addEventListener('mouseenter', handleMouseEnter);
     container.addEventListener('mouseleave', handleMouseLeave);
-    container.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
     animateCursor();
 
     return () => {
       container.removeEventListener('mouseenter', handleMouseEnter);
       container.removeEventListener('mouseleave', handleMouseLeave);
-      container.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (animationId) cancelAnimationFrame(animationId);
     };
   }, [containerRef]);
 
@@ -75,7 +78,12 @@ const HeroCustomCursor: React.FC<HeroCustomCursorProps> = ({ containerRef }) => 
     <div
       ref={cursorRef}
       className="fixed pointer-events-none z-[60] opacity-0"
-      style={{ willChange: 'transform' }}
+      style={{ 
+        willChange: 'transform',
+        left: 0,
+        top: 0,
+        transform: 'translate(-50%, -50%)'
+      }}
     >
       <div className="relative w-16 h-16 -translate-x-1/2 -translate-y-1/2">
         <div className="absolute inset-0 rounded-full border-2 border-ln-yellow bg-ln-yellow/10 backdrop-blur-sm animate-pulse"></div>

@@ -19,6 +19,7 @@
     "pixi.js": "^8.14.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "rive-react": "^4.24.0",
     "three": "^0.182.0"
   },
   "devDependencies": {

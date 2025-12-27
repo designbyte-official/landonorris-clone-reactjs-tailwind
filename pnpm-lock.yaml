@@ -38,6 +38,9 @@ importers:
       react-dom:
         specifier: ^19.2.3
         version: 19.2.3(react@19.2.3)
+      rive-react:
+        specifier: ^4.24.0
+        version: 4.24.0(react@19.2.3)
       three:
         specifier: ^0.182.0
         version: 0.182.0
@@ -421,6 +424,18 @@ packages:
         optional: true
       react-native:
         optional: true
+
+  '@rive-app/canvas-lite@2.32.0':
+    resolution: {integrity: sha512-F35bDRwmjpGNzprWyLt8zc9YducAMh6L3q06Dzqg34B0O6AVKymAb1knGsBIn0wBaG8ufNZZWHkrC2a0rv+zuA==}
+
+  '@rive-app/canvas@2.32.0':
+    resolution: {integrity: sha512-RZRZQRWItH7e0NVmHVhffkm02J/9CO/Qdq71Vu1TkExj312Oc22FpBVn8rBnyEeQak75bJy9m/ig84Crcr7qog==}
+
+  '@rive-app/webgl2@2.32.0':
+    resolution: {integrity: sha512-99Oquwnbl9HgZQhk70Dx9apQDyQPKTL1dyv5HUoWdVSJM71d3894XBbzw2W0o1pgYTDiS6iogaAs4dTw+OezJQ==}
+
+  '@rive-app/webgl@2.32.0':
+    resolution: {integrity: sha512-QfUyREAII5AV5zmM2jKu9qRR/vyix4JHXLW8xI/MHaMQP8M+PebBue8NdF6QQ3PC846LyhZo2Row9ozdTkqIGQ==}
 
   '@rolldown/pluginutils@1.0.0-beta.53':
     resolution: {integrity: sha512-vENRlFU4YbrwVqNDZ7fLvy+JR1CRkyr01jhSiDpE1u6py3OMzQfztQU2jxykW3ALNxO4kSlqIDeYyD0Y9RcQeQ==}
@@ -1134,6 +1149,11 @@ packages:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
 
+  rive-react@4.24.0:
+    resolution: {integrity: sha512-7E2SirE6OdgoiOuHXs0aUZhuCbAI3gQpipnk2Tjo7v6dR20zhev2UPqE4nOTYP+5cTOhv0v224GrGQBaMDhxew==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0
+
   rollup@4.54.0:
     resolution: {integrity: sha512-3nk8Y3a9Ea8szgKhinMlGMhGMw89mqule3KWczxhIzqudyHdCIOHw8WJlj/r329fACjKLEh13ZSk7oE22kyeIw==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
@@ -1681,6 +1701,14 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
       - immer
+
+  '@rive-app/canvas-lite@2.32.0': {}
+
+  '@rive-app/canvas@2.32.0': {}
+
+  '@rive-app/webgl2@2.32.0': {}
+
+  '@rive-app/webgl@2.32.0': {}
 
   '@rolldown/pluginutils@1.0.0-beta.53': {}
 
@@ -2278,6 +2306,14 @@ snapshots:
   react@19.2.3: {}
 
   require-from-string@2.0.2: {}
+
+  rive-react@4.24.0(react@19.2.3):
+    dependencies:
+      '@rive-app/canvas': 2.32.0
+      '@rive-app/canvas-lite': 2.32.0
+      '@rive-app/webgl': 2.32.0
+      '@rive-app/webgl2': 2.32.0
+      react: 19.2.3
 
   rollup@4.54.0:
     dependencies:
