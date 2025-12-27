@@ -191,14 +191,14 @@ const Hero: React.FC = () => {
       <div ref={contentRef} className="relative z-10 w-full max-w-[90rem] h-full flex items-end justify-center px-[1rem]">
 
         {/* Wireframe Helmet Overlay */}
-        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[35rem] md:w-[55rem] h-[35rem] md:h-[55rem] z-30 pointer-events-none mix-blend-multiply opacity-40 select-none">
+        {/* <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[35rem] md:w-[55rem] h-[35rem] md:h-[55rem] z-30 pointer-events-none mix-blend-multiply opacity-40 select-none">
           <img
             ref={helmetRef}
             src="/images/hero/Norris_Helmet_mat_BaseColor.webp"
             alt=""
             className="w-full h-full object-contain"
           />
-        </div>
+        </div> */}
 
         {/* Lando Portrait - PixiJS Displacement Effect */}
         <div className="relative z-20 h-full flex items-end">
