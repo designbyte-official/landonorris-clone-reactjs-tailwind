@@ -1,27 +1,18 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import NextRaceCard from '../cards/next_race_card';
+import BackgroundCurve from '../ui/background_curve';
 import * as PIXI from 'pixi.js';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const portraitRef = useRef<HTMLImageElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
-  const helmetRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useGSAP(() => {
     // Initial entrance animations
-    gsap.from(helmetRef.current, {
-      scale: 0.85,
-      opacity: 0,
-      duration: 2,
-      ease: 'elastic.out(1, 0.75)',
-      delay: 0.5
-    });
-
     gsap.from(".hero-center-icon", {
       y: '-2rem',
       opacity: 0,
@@ -42,33 +33,6 @@ const Hero: React.FC = () => {
       }
     });
 
-    gsap.to(helmetRef.current, {
-      y: '-20vh',
-      rotate: 15,
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1.5,
-      }
-    });
-
-    // Background Curve Animation
-    gsap.to(".bg-curve", {
-      rotate: 360,
-      duration: 120,
-      repeat: -1,
-      ease: "none"
-    });
-
-    gsap.to(".bg-curve", {
-      scale: 1.2,
-      duration: 15,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
-
     // PixiJS 3D Depth Map Effect
     let app: PIXI.Application | null = null;
 
@@ -78,8 +42,8 @@ const Hero: React.FC = () => {
         antialias: true,
         backgroundAlpha: 0,
         resizeTo: canvasRef.current || undefined,
-        width: 800,
-        height: 1000,
+        width: 1200,
+        height: 1200,
       });
 
       if (canvasRef.current && app.canvas) {
@@ -95,8 +59,8 @@ const Hero: React.FC = () => {
       const diffuseSprite = new PIXI.Sprite(diffuseTex);
       const depthSprite = new PIXI.Sprite(depthTex);
 
-      // Aspect ratio handling
-      const scale = (app.renderer.height * 0.9) / diffuseSprite.height;
+      // Aspect ratio handling - increased scale for wider image
+      const scale = (app.renderer.height * 1.1) / diffuseSprite.height;
       diffuseSprite.scale.set(scale);
       depthSprite.scale.set(scale);
 
@@ -133,15 +97,6 @@ const Hero: React.FC = () => {
           duration: 1.5,
           ease: 'power2.out'
         });
-
-        // Update helmet parallax
-        gsap.to(helmetRef.current, {
-          x: mouseX * 0.8,
-          y: mouseY * 0.5,
-          rotationY: mouseX * 0.2,
-          duration: 1.5,
-          ease: 'power2.out',
-        });
       };
 
       window.addEventListener('mousemove', handleMouseMove);
@@ -162,16 +117,10 @@ const Hero: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen min-h-[50rem] flex items-end justify-center overflow-hidden bg-[#EFEEEC]"
+      className="relative w-full h-screen min-h-[50rem] flex items-end justify-center overflow-hidden bg-ln-cream"
     >
       {/* Animated Background Green Curve */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none flex items-center justify-center">
-        <img
-          src="/images/green-svgs/background-curve.svg"
-          alt=""
-          className="w-[120%] h-[120%] object-contain bg-curve max-w-none"
-        />
-      </div>
+      <BackgroundCurve />
 
       {/* Next Race Sidebar Card */}
       <NextRaceCard className="absolute left-[3rem] bottom-[4rem] z-20 hidden lg:block" />
@@ -201,21 +150,13 @@ const Hero: React.FC = () => {
         </div> */}
 
         {/* Lando Portrait - PixiJS Displacement Effect */}
-        <div className="relative z-20 h-full flex items-end">
+        <div className="relative z-20 h-full flex items-end w-full max-w-[100rem]">
           <div
             ref={canvasRef}
             className="w-full h-full flex items-end justify-center select-none pointer-events-none"
           />
         </div>
 
-        {/* Floating Signature/Accent */}
-        <div className="absolute right-[5rem] top-[20%] z-25 opacity-20 hidden xl:block">
-          <img
-            src="/images/logos-and-signatures/signature-big.svg"
-            alt=""
-            className="w-[12rem] h-auto invert"
-          />
-        </div>
 
       </div>
     </section>
