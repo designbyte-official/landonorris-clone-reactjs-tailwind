@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { ShoppingBag } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -61,16 +60,20 @@ const Header: React.FC = () => {
             href="https://store.landonorris.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-[0.5rem] bg-ln-yellow text-ln-deep-forest px-[1.2rem] py-[0.7rem] md:px-[1.8rem] md:py-[0.85rem] font-display font-bold uppercase tracking-tight hover:bg-black hover:text-white transition-all duration-500 rounded-[0.4rem]"
+            className="group flex items-center gap-[0.55rem] bg-ln-yellow text-ln-deep-forest px-[1.2rem] py-[0.7rem] md:px-[1.6rem] md:py-[0.85rem] font-sans font-black uppercase tracking-tight hover:brightness-105 active:scale-95 transition-all duration-300 rounded-[0.6rem] shadow-none border-none"
           >
-            <ShoppingBag size={18} strokeWidth={2.5} />
-            <span className="text-[0.85rem] md:text-[0.95rem]">Store</span>
+            <img
+              src="/images/logos-icons/cart.svg"
+              alt="Cart"
+              className="w-[1.2rem] h-[1.2rem] transition-transform duration-300 group-hover:-translate-y-px"
+            />
+            <span className="text-[0.9rem] md:text-[1rem] leading-none">Store</span>
           </a>
 
-          <button className="group bg-white border border-ln-deep-forest/10 p-[0.7rem] md:p-[0.85rem] rounded-[0.6rem] hover:bg-ln-offwhite transition-all duration-300 flex items-center justify-center">
-            <div className="flex flex-col gap-[0.25rem] w-[1.3rem] md:w-[1.6rem]">
-              <div className="h-[2px] w-full bg-ln-deep-forest group-hover:w-3/4 transition-all duration-300"></div>
-              <div className="h-[2px] w-3/4 self-end bg-ln-deep-forest group-hover:w-full transition-all duration-300"></div>
+          <button className="group bg-white p-[0.7rem] md:p-[1rem] rounded-[1rem] hover:bg-ln-offwhite transition-all duration-300 flex items-center justify-center border-none shadow-none cursor-pointer">
+            <div className="flex flex-col gap-[0.35rem] w-[1.4rem] md:w-[1.8rem]">
+              <div className="h-[2px] w-[60%] bg-ln-deep-forest self-end transition-all duration-300 group-hover:w-full"></div>
+              <div className="h-[2px] w-[60%] bg-ln-deep-forest self-start transition-all duration-300 group-hover:w-full"></div>
             </div>
           </button>
         </div>
